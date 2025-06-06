@@ -15,7 +15,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="entityManagerFactory" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -77,7 +79,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:6.2.7" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.17" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:6.2.7" level="project" />
-    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.24" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-rest:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:3.5.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:3.5.0" level="project" />
@@ -130,5 +131,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:6.2.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:6.2.7" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.10.1" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.9.24" level="project" />
   </component>
 </module>
