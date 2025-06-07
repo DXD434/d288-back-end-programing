@@ -42,6 +42,9 @@ public class RestDataConfig implements RepositoryRestConfigurer {
         config.setDefaultPageSize(Integer.MAX_VALUE);
         config.setMaxPageSize(Integer.MAX_VALUE);
 
+        cors.addMapping("/**")
+                .allowedOrigins("http://localhost:4200")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
 
     }
 }
