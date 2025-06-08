@@ -17,17 +17,17 @@ public class Customer {
     @Column(name = "customer_id")
     private Long id;
 
-    @Column(name = "address", nullable = false)
+    @Column(name = "address")
     private String address;
 
     @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
 
-    @Column(name = "customer_first_name", nullable = false)
+    @Column(name = "customer_first_name")
     private String firstName;
 
-    @Column(name = "customer_last_name", nullable = false)
+    @Column(name = "customer_last_name")
     private String lastName;
 
     @Column(name = "last_update")
@@ -129,5 +129,8 @@ public class Customer {
 
     public void add(Cart cart) {
         this.carts.add(cart);
+    }
+
+    public void addCart(Cart cart) {
     }
 }
