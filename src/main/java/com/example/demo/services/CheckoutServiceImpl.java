@@ -49,7 +49,6 @@ public class CheckoutServiceImpl implements CheckoutService {
         // Add cart to customer
         Customer customer = purchase.getCustomer();
         customer.addCart(cart); // ensure this method exists on Customer entity
-
         // Save customer (cascade should save cart and items if configured)
         customerRepository.save(customer);
 

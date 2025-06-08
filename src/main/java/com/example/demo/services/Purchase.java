@@ -19,7 +19,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Purchase {
-
     private Customer customer;
     private Cart cart;
     private Set<CartItem> cartItems;
