@@ -19,7 +19,7 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Cart> carts = new HashSet<>();
 
-    // ... other getters and setters ...
+
 
     public Set<Cart> getCarts() {
         return carts;
