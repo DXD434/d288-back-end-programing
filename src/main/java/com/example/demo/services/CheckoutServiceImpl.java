@@ -10,7 +10,6 @@ import com.example.demo.entities.StatusType;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.Set;
 import java.util.UUID;
 
@@ -30,6 +29,8 @@ public class CheckoutServiceImpl implements CheckoutService {
         this.customerRepository = customerRepository;
     }
 
+    // **Insert the placeOrder method HERE**
+
     @Override
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
@@ -46,11 +47,12 @@ public class CheckoutServiceImpl implements CheckoutService {
         Set<CartItem> cartItems = purchase.getCartItems();
         cartItems.forEach(cart::addCartItem);
 
-        // Add cart to customer
+        // Set the customer on the cart
         Customer customer = purchase.getCustomer();
-        customer.addCart(cart); // ensure this method exists on Customer entity
-        // Save customer (cascade should save cart and items if configured)
-        customerRepository.save(customer);
+        cart.setCustomer(customer); // IMPORTANT
+
+        // Save the cart directly to verify tracking number saves correctly
+        cartRepository.save(cart);
 
         return new PurchaseResponse(orderTrackingNumber);
     }

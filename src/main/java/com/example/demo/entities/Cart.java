@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +11,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "carts")
 public class Cart {
@@ -19,10 +23,10 @@ public class Cart {
     private Long id;
 
     @Column(name = "package_price")
-    private BigDecimal packagePrice;
+    private BigDecimal package_price;
 
     @Column(name = "party_size")
-    private int partySize;
+    private int party_size;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -33,11 +37,11 @@ public class Cart {
 
     @Column(name = "create_date", updatable = false)
     @CreationTimestamp
-    private Date createDate;
+    private Date create_date;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date lastUpdate;
+    private Date last_update;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItems = new HashSet<>();
@@ -64,19 +68,19 @@ public class Cart {
     }
 
     public BigDecimal getPackagePrice() {
-        return packagePrice;
+        return package_price;
     }
 
     public void setPackagePrice(BigDecimal packagePrice) {
-        this.packagePrice = packagePrice;
+        this.package_price = packagePrice;
     }
 
     public int getPartySize() {
-        return partySize;
+        return party_size;
     }
 
     public void setPartySize(int partySize) {
-        this.partySize = partySize;
+        this.party_size = partySize;
     }
 
     public StatusType getStatusType() {
@@ -96,19 +100,19 @@ public class Cart {
     }
 
     public Date getCreateDate() {
-        return createDate;
+        return create_date;
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.create_date = createDate;
     }
 
     public Date getLastUpdate() {
-        return lastUpdate;
+        return last_update;
     }
 
     public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
+        this.last_update = lastUpdate;
     }
 
     public Set<CartItem> getCartItems() {

@@ -6,13 +6,16 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
-@Getter
-@Setter
+
+
 @Entity
 @Table(name = "vacations")
+@Getter
+@Setter
 public class Vacation {
 
     @Id
@@ -22,23 +25,23 @@ public class Vacation {
 
     @CreationTimestamp
     @Column(name = "create_date")
-    private Date createDate;
+    private Date create_date;
 
     @UpdateTimestamp
-    @Column(name = "last_update")
-    private Date lastUpdate;
+    @Column(name = "last_update", nullable = false)
+    private Date last_update;
 
     @Column(name = "vacation_title", nullable = false)
-    private String vacationTitle;
+    private String vacation_title;
 
-    @Column(name = "description")
+    @Column(name = "description" , nullable = false)
     private String description;
 
-    @Column(name = "image_url")
-    private String imageUrl;
+    @Column(name = "image_url", nullable = false)
+    private String image_URL;
 
     @Column(name = "travel_fare_price")
-    private Float travelFarePrice;
+    private BigDecimal travel_price;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
     private Set<Excursion> excursions;

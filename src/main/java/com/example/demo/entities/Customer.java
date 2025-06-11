@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -8,6 +10,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -38,11 +42,11 @@ public class Customer {
 
     @CreationTimestamp
     @Column(name = "create_date", updatable = false)
-    private Date createDate;
+    private Date create_date;
 
     @UpdateTimestamp
     @Column(name = "last_update")
-    private Date lastUpdate;
+    private Date last_update;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Cart> carts = new HashSet<>();
@@ -106,19 +110,19 @@ public class Customer {
     }
 
     public Date getCreateDate() {
-        return createDate;
+        return create_date;
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.create_date = createDate;
     }
 
     public Date getLastUpdate() {
-        return lastUpdate;
+        return last_update;
     }
 
     public void setLastUpdate(Date lastUpdate) {
-        this.lastUpdate = lastUpdate;
+        this.last_update = lastUpdate;
     }
 
     public Set<Cart> getCarts() {

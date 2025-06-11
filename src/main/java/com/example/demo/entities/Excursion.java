@@ -1,13 +1,17 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
-
+@Getter
+@Setter
 @Entity
 @Table(name = "excursions")
 
@@ -23,7 +27,7 @@ public class Excursion {
     private Date create_date;
 
     @Column(name = "excursion_price")
-    private Float excursion_price;
+    private BigDecimal excursion_price;
 
     @Column(name = "excursion_title")
     private String excursion_title;
@@ -58,11 +62,11 @@ public class Excursion {
         this.create_date = create_date;
     }
 
-    public Float getExcursion_price() {
+    public BigDecimal getExcursion_price() {
         return excursion_price;
     }
 
-    public void setExcursion_price(Float excursion_price) {
+    public void setExcursion_price(BigDecimal excursion_price) {
         this.excursion_price = excursion_price;
     }
 
