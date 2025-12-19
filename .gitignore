@@ -1,4 +1,6 @@
+# Maven build output
+target/
+
+# IntelliJ / IDE files
 .idea/
-.idea/
-.idea/
-target/classes/
+*.iml
